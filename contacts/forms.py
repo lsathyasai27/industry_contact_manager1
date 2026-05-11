@@ -53,5 +53,5 @@ class ContactNoteForm(forms.ModelForm):
 class CSVImportForm(forms.Form):
     file = forms.FileField(
         label='Upload CSV file',
-        widget=forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        widget=forms.ClearableFileInput(attrs={'class': 'form-control glass-input'}),
     )

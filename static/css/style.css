@@ -1,5 +1,6 @@
 
 * {
+    box-sizing: border-box;
     transition: all 0.3s ease;
 }
 
@@ -9,39 +10,47 @@ body {
     background: #10161f;
     color: #f3f4f6;
     overflow-x: hidden;
+    font-size: 18px;
+    min-height: 100vh;
 }
 
 .sidebar {
     position: fixed;
-    width: 240px;
+    left: 0;
+    top: 0;
+    width: 300px;
     height: 100vh;
     background: #121a24;
     backdrop-filter: blur(10px);
-    padding: 30px 20px;
+    padding: 38px 24px;
     box-shadow: 2px 0 24px rgba(0, 0, 0, 0.45);
     border-right: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 10;
 }
 
 .logo {
-    margin-bottom: 40px;
+    margin-bottom: 62px;
     font-weight: 800;
-    font-size: 24px;
+    font-size: 30px;
     color: #eef2ff;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     line-height: 1.1;
+    white-space: nowrap;
 }
 
 .sidebar a {
     display: block;
-    padding: 14px;
-    margin-bottom: 12px;
+    padding: 14px 18px;
+    margin-bottom: 34px;
     text-decoration: none;
     color: #d1d5db;
-    border-radius: 14px;
+    border-radius: 8px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    font-size: 20px;
+    line-height: 1.2;
 }
 
 .sidebar a::before {
@@ -63,16 +72,17 @@ body {
 }
 
 .main {
-    margin-left: 260px;
-    padding: 40px;
+    margin-left: 300px;
+    padding: 46px 48px 60px 75px;
+    min-height: 100vh;
 }
 
 .glass-card {
     background: rgba(22, 28, 38, 0.96);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 30px;
+    border-radius: 22px;
+    padding: 36px 38px;
     box-shadow: 0 18px 60px rgba(0, 0, 0, 0.2);
 }
 
@@ -83,6 +93,20 @@ body {
     gap: 20px;
     flex-wrap: wrap;
     animation: fadeInDown 0.6s ease;
+    margin-bottom: 50px !important;
+}
+
+.dashboard-header h2,
+.main > .glass-card h2,
+.main h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.dashboard-header p {
+    color: #7f8ea3 !important;
+    font-size: 20px;
 }
 
 .dashboard-actions {
@@ -94,7 +118,7 @@ body {
 
 .search-card .form-control,
 .search-card .btn {
-    min-height: 48px;
+    min-height: 60px;
 }
 
 .portfolio-grid {
@@ -105,7 +129,8 @@ body {
     background: rgba(23, 30, 42, 0.92);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 18px;
-    min-height: 240px;
+    min-height: 360px;
+    padding: 20px !important;
     transition: all 0.25s ease;
 }
 
@@ -117,8 +142,8 @@ body {
 }
 
 .portfolio-avatar {
-    width: 60px;
-    height: 60px;
+    width: 76px;
+    height: 76px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,7 +151,8 @@ body {
     border-radius: 16px;
     font-weight: 900;
     color: #eef2ff;
-    font-size: 20px;
+    font-size: 26px;
+    margin-bottom: 8px;
 }
 
 .btn-outline-light {
@@ -146,6 +172,10 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
     color: white !important;
     transition: all 0.3s ease;
+    min-height: 48px;
+    border-radius: 7px;
+    font-size: 18px;
+    padding: 10px 14px;
 }
 
 .glass-input::placeholder {
@@ -187,7 +217,7 @@ select.form-control option:checked {
     background: #3f72af;
     color: #ffffff;
     border: none;
-    padding: 12px 24px;
+    padding: 14px 30px;
     border-radius: 12px;
     font-weight: 600;
     transition: all 0.25s ease;
@@ -209,18 +239,71 @@ select.form-control option:checked {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    background: linear-gradient(135deg, #030303 0%, #171717 100%);
     animation: fadeIn 0.8s ease;
+    padding: 24px;
 }
 
 .auth-card {
-    width: 420px;
-    padding: 40px;
+    width: 526px;
+    padding: 48px 50px;
     border-radius: 24px;
     background: rgba(24, 32, 44, 0.95);
     backdrop-filter: blur(18px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     animation: slideInUp 0.7s ease;
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.36);
+}
+
+.auth-card h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 32px !important;
+}
+
+.auth-form input,
+.auth-form select,
+.auth-form textarea {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #f3f4f6;
+    min-height: 46px;
+    border-radius: 7px;
+    padding: 8px 14px;
+}
+
+.auth-form .form-control {
+    min-height: 46px;
+}
+
+.auth-form label {
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.auth-form p {
+    margin-bottom: 20px;
+    color: #e5e7eb;
+    font-weight: 600;
+}
+
+.auth-form .helptext,
+.auth-form ul {
+    display: block;
+    color: #e5e7eb;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.register-form input {
+    width: min(100%, 235px);
+}
+
+.auth-form .btn-neon {
+    width: 100%;
+    min-height: 61px;
+    margin-top: 4px;
+    font-size: 18px;
 }
 
 .toast-msg {
@@ -341,6 +424,31 @@ select.form-control option:checked {
 
 .table tbody tr {
     background: transparent;
+}
+
+.table-dark {
+    --bs-table-bg: transparent;
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.03);
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.06);
+}
+
+.badge {
+    border-radius: 7px;
+}
+
+.list-group-item {
+    background: rgba(23, 30, 42, 0.92);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #e5e7eb;
+}
+
+.form-label,
+label {
+    color: #e5e7eb;
+}
+
+textarea.glass-input {
+    min-height: 120px;
 }
 
 .table td,
@@ -481,11 +589,24 @@ select.form-control option:checked {
 /* Responsive */
 @media (max-width: 768px) {
     .sidebar {
-        width: 200px;
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 24px;
     }
-    
+
+    .logo {
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    .sidebar a {
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+
     .main {
-        margin-left: 220px;
+        margin-left: 0;
         padding: 20px;
     }
     
