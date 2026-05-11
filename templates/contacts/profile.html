@@ -1,0 +1,117 @@
+
+{% extends 'contacts/base.html' %}
+{% block content %}
+
+<div class="profile-header glass-card">
+    <div class="profile-avatar">{{ request.user.first_name|first|upper|default:request.user.username|first|upper }}</div>
+    <h2>{{ request.user.first_name|default:request.user.username }}</h2>
+    <span class="role-badge" style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.5);">{{ profile.get_role_display }}</span>
+    <p class="text-secondary mt-3">{{ profile.bio|default:'Welcome to your professional profile!' }}</p>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="profile-stat">
+            <h6>Total Contacts</h6>
+            <h2>{{ total_contacts }}</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="profile-stat">
+            <h6>Favorite Contacts</h6>
+            <h2>{{ favorite_contacts }}</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="profile-stat">
+            <h6>Tags Used</h6>
+            <h2>{{ total_tags }}</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="profile-stat">
+            <h6>Profile Status</h6>
+            <h2><span class="badge bg-light text-dark">Active</span></h2>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-6">
+        <div class="glass-card">
+            <h4 class="mb-4">Account Information</h4>
+            <table class="table table-borderless text-secondary">
+                <tr>
+                    <td><strong>Username:</strong></td>
+                    <td>{{ request.user.username }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong></td>
+                    <td>{{ request.user.email }}</td>
+                </tr>
+                <tr>
+                    <td><strong>First Name:</strong></td>
+                    <td>{{ request.user.first_name|default:'Not set' }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Last Name:</strong></td>
+                    <td>{{ request.user.last_name|default:'Not set' }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Role:</strong></td>
+                    <td>{{ profile.get_role_display }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Company:</strong></td>
+                    <td>{{ profile.company|default:'Not set' }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Job Title:</strong></td>
+                    <td>{{ profile.job_title|default:'Not set' }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Phone:</strong></td>
+                    <td>{{ profile.phone|default:'Not set' }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Member Since:</strong></td>
+                    <td>{{ profile.created_at|date:"F d, Y" }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="glass-card">
+            <h4 class="mb-4">Quick Stats</h4>
+            <div class="row g-3">
+                <div class="col-6">
+                    <div class="profile-stat">
+                        <h6>Personal Contacts</h6>
+                        <h2>{{ personal_contacts }}</h2>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="profile-stat">
+                        <h6>Professional Contacts</h6>
+                        <h2>{{ professional_contacts }}</h2>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="profile-stat">
+                        <h6>Family Contacts</h6>
+                        <h2>{{ family_contacts }}</h2>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="profile-stat">
+                        <h6>Vendor/Other</h6>
+                        <h2>{{ other_contacts }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

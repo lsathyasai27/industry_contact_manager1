@@ -1,0 +1,21 @@
+{% extends 'contacts/base.html' %}
+{% block content %}
+
+<div class="glass-card mx-auto" style="max-width: 700px;">
+    <h2 class="mb-4">Import Contacts</h2>
+    <p class="text-secondary mb-4">Upload a CSV file with headers: name, company, job_title, phone, email, address, birthday, category, favorite, tags.</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.file.label_tag }}
+            {{ form.file }}
+            {% for error in form.file.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <button class="btn btn-neon">Import Contacts</button>
+        <a href="/" class="btn btn-outline-light">Cancel</a>
+    </form>
+</div>
+
+{% endblock %}

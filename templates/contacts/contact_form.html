@@ -1,0 +1,32 @@
+
+{% extends 'contacts/base.html' %}
+{% block content %}
+
+<div class="glass-card mx-auto" style="max-width: 700px;">
+    <h2 class="mb-4">{{ title|default:'Contact Form' }}</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="row g-3">
+            {{ form.non_field_errors }}
+            {% for field in form %}
+                <div class="col-12">
+                    <label class="form-label fw-semibold">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small class="text-secondary">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="mt-4 d-flex gap-2">
+            <button class="btn btn-neon" type="submit">Save Contact</button>
+            <a href="/" class="btn btn-outline-light">Cancel</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
